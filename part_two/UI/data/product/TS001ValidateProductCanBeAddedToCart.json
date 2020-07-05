@@ -1,0 +1,17 @@
+{
+    "product": {
+        "name": "Dalaian",
+        "type": "simple",
+        "regular_price": "68.98",
+        "description": "Description1234",
+        "short_description": "Short description123",
+        "images": [
+            {
+                "src": "https://www.toolband.de/img/album.jpg"
+            }
+        ]
+    },
+    "quantity": "7",
+    "total": "482.86",
+    "url": "/cart/"
+}
