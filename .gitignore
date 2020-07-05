@@ -1,4 +1,5 @@
+.idea
+*.pyc
 part_two/UI/logs/
 part_two/UI/reports/screenshots
 part_two/UI/reports/*.xml
-.idea
