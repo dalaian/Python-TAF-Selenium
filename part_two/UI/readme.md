@@ -4,13 +4,16 @@ This is the solution for the part two of the assessment
 ### Instructions to run the framework
 
 You need the following in your computer to run the framework
-* Selenium: web-driver server
+* Selenium grid
 * Python
+
+If you already have a selenium grid, you only need to go to **UI/config/config.ini** and make sure the seleniumAddress is the correct
 
 ### How to install python
 See instruction in the readme file of the part_one folder, section "How to install python"
 
-### How to install Selenium web-driver server
+### How to install Selenium grid
+For this framework, we are going to install webdriver-manager as the selenium grid 
 There are several ways to install it, you can use brew if you are on Mac 
 but I'd recommend to install NodeJS because it will run on Windows or Mac
 
