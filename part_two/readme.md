@@ -12,6 +12,11 @@ If you already have a selenium grid, you only need to go to **UI/config/config.i
 ### How to install python
 See instruction in the readme file of the part_one folder, section "How to install python"
 
+Once python is installed, go to install the requirements by the command
+```
+pip install -r requirements.txt
+```
+
 ### How to install Selenium grid
 For this framework, we are going to install webdriver-manager as the selenium grid 
 There are several ways to install it, you can use brew if you are on Mac 
