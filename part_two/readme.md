@@ -43,8 +43,52 @@ webdriver-manager start
 ```
 
 ## Running the test
-Now, if everything is installed, open the terminal, and go to the folder **part_two**
+Now, if everything is correct, open the terminal, and go to the folder **part_two**
 Run the command
 ```
 python UI/tests/product/TS001ValidateProductCanBeAddedToCart.py
 ```
+
+### Parameters
+It's possible to indicate the browser in which you want to run the test case 
+using the parameter '-b' or '--browser', by default it is CHROME
+```
+python UI/tests/product/TS001ValidateProductCanBeAddedToCart.py -b <CHROME/FIREFOX/SAFARI>
+``` 
+For instance:
+```
+python UI/tests/product/TS001ValidateProductCanBeAddedToCart.py --browser FIREFOX
+``` 
+
+Or you can send a parameter to indicate to run the test case in headless mode, using the parameter '-hl' or '--headless',
+ by default it is not in headless mode
+```
+python UI/tests/product/TS001ValidateProductCanBeAddedToCart.py --headless <True/1/T/t/true False/0/F/f/false>
+``` 
+For instance:
+```
+python UI/tests/product/TS001ValidateProductCanBeAddedToCart.py -hl True
+```
+Note: to run the automation on Safari you have to check the 'Allow Remote Automation' option in Safari's Develop menu, 
+also Safari does not support headless mode yet
+
+You can also see what parameters you can send using the -h parameter
+```
+python UI/tests/product/TS001ValidateProductCanBeAddedToCart.py -h
+``` 
+
+So, a good example to run the automation is with the command
+```
+python UI/tests/product/TS001ValidateProductCanBeAddedToCart.py --browser FIREFOX -hl true
+```
+
+### Reports
+The automation generates certain reports to give more information to the QA Automation Engineer as well as for the stakeholders
+
+The framework logs all the actions done by the code under the folder UI/logs, any failure, warning or 
+information will be here. The logs will be separated based on the browser
+
+Under UI/reports you can find xml reports about the results of the test cases
+
+Finally, under UI/reports/screenshots have all the screenshots taken if any error was present, 
+the name says in which step the error occurred

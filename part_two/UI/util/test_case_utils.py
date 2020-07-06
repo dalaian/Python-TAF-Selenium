@@ -2,6 +2,7 @@ import argparse
 import collections
 import sys
 import traceback
+from distutils.util import strtobool
 
 from part_two.API.product.product import Product
 from part_two.UI.util.config import Config
@@ -14,14 +15,14 @@ class TestCaseUtils:
     __IMPLICIT_WAIT = 10
     cmd_line_args = None
 
-    def __init__(self, test_case):
+    def __init__(self, test_case=None):
         self.parser = None
         self.config = Config()
         self.driver = None
-        self.browser = test_case.BROWSER
-        self.headless = test_case.HEAD_LESS
-
-        logger.config_logger(test_case.__name__, self.browser)
+        if test_case is not None:
+            self.browser = test_case.BROWSER
+            self.headless = test_case.HEAD_LESS
+            logger.config_logger(test_case.__name__, self.browser)
 
     def open_browser(self):
         grid = self.config.get_grid()
@@ -80,7 +81,7 @@ class TestCaseUtils:
             required=False,
             const='CHROME',
             default='CHROME',
-            help='The browser in which the TC will be executed'
+            help='The browser in which the TC will be executed, by default CHROME'
         )
         self.parser.add_argument(
             '-hl',
@@ -88,9 +89,9 @@ class TestCaseUtils:
             dest='headless',
             nargs='?',
             required=False,
-            const='True',
+            const='False',
             default='False',
-            help='Indicates whether the test should be executed in headless mode'
+            help='Indicates whether the test should be executed in headless mode, by default False'
         )
         args = collections.deque(sys.argv)
         args.popleft()
@@ -101,6 +102,9 @@ class TestCaseUtils:
         if TestCaseUtils.cmd_line_args is None:
             TestCaseUtils.cmd_line_args = self.get_variables_from_command_line()
         cmd_line_args = TestCaseUtils.cmd_line_args
-        self.browser = cmd_line_args.browser
-        self.headless = cmd_line_args.headless
+
+        test_case.BROWSER = cmd_line_args.browser
+        test_case.HEAD_LESS = strtobool(cmd_line_args.headless)
+
+        del sys.argv[1:]
         return test_case

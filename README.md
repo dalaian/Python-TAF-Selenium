@@ -7,5 +7,5 @@ and also find the readme file to execute the test
 
 The part_two folder contains the framework for the part 2 of the assessment, and there is the read me file as well 
 
-Coded in: Python 2.7
+Coded in: Python 2.7 (I know it is deprecated but it's the language I used to code when was working with python)
 Author: Dalaian Flores

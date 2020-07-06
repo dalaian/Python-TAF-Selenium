@@ -2,7 +2,7 @@ import importer
 import sys
 import unittest
 import part_two.util.read_file as read_file
-import xmlrunner as xmlrunner
+import xmlrunner
 
 from part_two.UI.pages.product.product_page import ProductPage
 from part_two.UI.util.test_case_utils import TestCaseUtils
@@ -73,7 +73,7 @@ class TS001ValidateProductCanBeAddedToCart(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    # TestCaseUtils().set_parameters_to_this(TS001ValidateProductCanBeAddedToCart)
+    TestCaseUtils().set_parameters_to_this(TS001ValidateProductCanBeAddedToCart)
     with open('UI/reports/TS001ValidateProductCanBeAddedToCart.xml', 'wb') as output:
         unittest.main(testRunner=xmlrunner.XMLTestRunner(output=output, verbosity=2),
                       failfast=False, buffer=False, catchbreak=False)
