@@ -50,11 +50,11 @@ To run the tests, be sure you are in the folder **part_one/tests**
 
 Run the positive tests as follows
 ```
-python -m unittest positive_tests
+python -m unittest -v positive_tests
 ```
 
 Run the negative tests as follows
 ```
-python -m unittest negative_tests
+python -m unittest -v negative_tests
 ```
 Certain assumptions were implemented to have negative tests, check the details in [part_one/utils/utils.get_largest_word()](https://github.com/dalaian/Test/blob/master/part_one/utils/utils.py#L3)
