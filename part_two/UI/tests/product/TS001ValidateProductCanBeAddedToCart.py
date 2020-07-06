@@ -11,6 +11,7 @@ class TS001ValidateProductCanBeAddedToCart(unittest.TestCase):
 
     BROWSER = 'CHROME'  # Options: CHROME, FIREFOX, SAFARI
     HEAD_LESS = False
+    page = None
 
     @classmethod
     def setUpClass(cls):
@@ -66,7 +67,7 @@ class TS001ValidateProductCanBeAddedToCart(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    TestCaseUtils().set_parameters_to_this(TS001ValidateProductCanBeAddedToCart)
+    TestCaseUtils().set_parameters_to_test_case(TS001ValidateProductCanBeAddedToCart)
     with open('UI/reports/TS001ValidateProductCanBeAddedToCart.xml', 'wb') as output:
         unittest.main(testRunner=xmlrunner.XMLTestRunner(output=output, verbosity=2),
                       failfast=False, buffer=False, catchbreak=False)

@@ -7,7 +7,7 @@ class Config(object):
 
     def __init__(self):
         self.configParser = ConfigParser.RawConfigParser()
-        self.configParser.read(self.config_path)  # TODO: fix this
+        self.configParser.read(self.config_path)
 
     def get_credentials(self, cred):
         return self.configParser.get('USER', cred)

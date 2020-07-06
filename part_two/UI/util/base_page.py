@@ -10,7 +10,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 class BasePage(object):
 
-    __IMPLICIT_WAIT = 20
+    __IMPLICIT_WAIT = 10
     screen_shots_path = 'UI/reports/screenshots'
 
     def __init__(self, driver):
@@ -61,6 +61,12 @@ class BasePage(object):
             raise Exception(ex)
 
     def send_keys(self, element, keys, clear=True):
+        """ Send keys to a element, by the parameter clear you can clear the element before sending the keys
+        @param element: WebElement
+        @param keys: str, keys to send
+        @param clear: Boolean, by default True
+        @return: None
+        """
         try:
             element = self.find_element(element)
             if clear:
@@ -116,6 +122,10 @@ class BasePage(object):
         return True
 
     def pause(self, pause):
+        """ Explicit wait
+        @param pause: int, time in seconds
+        @return: None
+        """
         time.sleep(pause)
 
     # Basic Actions
@@ -123,6 +133,7 @@ class BasePage(object):
     def find_element(self, element):
         element = self.message_to_locator(element)
         element = self.driver.find_element(*element)
+
         return self.scroll_to_element(element)
 
     def message_to_locator(self, element):
@@ -138,6 +149,11 @@ class BasePage(object):
         return None
 
     def scroll_to_element(self, element):
+        """ Scroll to a given element. It's important to move to the element in case a screenshot is taken,
+        otherwise the element may be not present in the screenshot
+        @param element: WebElement, element to go
+        @return: WebElement
+        """
         self.driver.execute_script("return arguments[0].scrollIntoView();", element)
         return element
 
@@ -155,10 +171,20 @@ class BasePage(object):
         return locator.format(value)
 
     def take_screen_shot(self, name=None, screen_shot_dir=screen_shots_path):
+        """ Take an screen of the actual page in the browser
+        @param name: str, name of the screen, if not the date will be the name
+        @param screen_shot_dir: str, path to save the screenshot
+        @return: None
+        """
+        # checks if a name was sent
         if name is None or len(name) <= 0:
+            # if no name was sent, the name will be the date
             name = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S-%f')
+        # creates the path for the screenshot
         path = '{}/{}_{}.png'.format(screen_shot_dir, name, self.browser_name)
+        # takes the screenshot
         self.driver.save_screenshot(path)
+        # logs where the screen was saved
         logging.info("Screenshot was saved in : " + path)
 
     # Logger

@@ -40,10 +40,16 @@ Now, if everything is correct start the web manager by the command (or if you us
 ```
 webdriver-manager start
 ```
->Note you cannot close this terminal
+>You should not close this terminal
 
+To check that the webdriver is up, check that at the end of the console it says
+>Selenium Server is up and running on port 4444
 
-Open the terminal, and go to the folder **part_two**
+Also, verify that you can go to http://localhost:4444/wd/hub/ in your browser
+
+### Installing requirements
+
+Open a terminal, and go to the folder **part_two**
 
 Run the following command to install the [requirements](https://github.com/dalaian/Test/blob/master/part_two/requirements.txt)
 ```
