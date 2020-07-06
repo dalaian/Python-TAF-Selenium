@@ -13,5 +13,5 @@ bash run.sh
 ```
 
 
-Coded in: Python 2.7 (I know it is deprecated but it's the language I used to code when was working with python)
+Coded in: Python 2.7 (I know it is deprecated but it's the version I used to code when was working with python)
 Author: Dalaian Flores 
