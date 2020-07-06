@@ -1,7 +1,4 @@
 import datetime
-
-from pip._internal.utils.deprecation import deprecated
-
 import part_two.util.logger as logging
 import time
 
@@ -20,6 +17,12 @@ class BasePage(object):
         self.driver = driver
         self.browser_name = driver.capabilities['browserName']
         self.utilities = Config()
+
+    """
+    Several methods are encapsulated here because in this way they are easier to maintain, some browser updates
+    create failures in one method and that may be fixed here.
+    Also, to manage Safari, this is a good approach
+    """
 
     # Common Actions
 
@@ -139,6 +142,7 @@ class BasePage(object):
         return element
 
     # Browser
+
     def get(self, url):
         self.driver.get(url)
 
@@ -158,13 +162,6 @@ class BasePage(object):
         logging.info("Screenshot was saved in : " + path)
 
     # Logger
+    # Creating this method here, allows to not import the logger in every page
     def logging(self, page, method):
-        """ Deprecated: had to move the logger to another location but all the pages use this method before that
-        so, a refactor is needed but don't have enough time for that.
-        Note: I wanted to add the @deprecated tag but needed more time to investigate a little more
-        TODO: refactor this
-        :param page:
-        :param method:
-        :return:
-        """
         logging.auto_log(page, method)
