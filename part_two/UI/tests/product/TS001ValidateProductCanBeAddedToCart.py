@@ -1,7 +1,6 @@
 import importer
-import sys
-import unittest
 import part_two.util.read_file as read_file
+import unittest
 import xmlrunner
 
 from part_two.UI.pages.product.product_page import ProductPage
@@ -9,12 +8,6 @@ from part_two.UI.util.test_case_utils import TestCaseUtils
 
 
 class TS001ValidateProductCanBeAddedToCart(unittest.TestCase):
-
-    utils = None
-    productAPI = None
-    data = None
-    driver = None
-    page = None
 
     BROWSER = 'CHROME'  # Options: CHROME, FIREFOX, SAFARI
     HEAD_LESS = False
@@ -29,9 +22,9 @@ class TS001ValidateProductCanBeAddedToCart(unittest.TestCase):
         self.data["product_api"] = self.productAPI.create(self.data["product"])
 
     def test_01_navigation(self):
-        self.driver = self.utils.open_browser()
+        driver = self.utils.open_browser()
         self.utils.url(self.data["product_api"]["permalink"])
-        self.__class__.page = ProductPage(self.driver)
+        self.__class__.page = ProductPage(driver)
 
         self.assertTrue(self.page.is_page_loaded(), "Product page did not load")
         self.assertEqual(self.page.get_product_title(), self.data["product"]["name"],

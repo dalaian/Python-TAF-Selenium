@@ -55,10 +55,10 @@ class TestCaseUtils:
     def tear_down(self, test):
         exc_info = sys.exc_info()
         if exc_info[0]:
+            logger.error(exc_info[1])
             logger.error(traceback.format_exc())
             if test.page is not None:
                 test.page.take_screen_shot(str(test.__class__.__name__ + '_' + test._testMethodName))
-            logger.error(exc_info[1])
 
     def close(self):
         self.driver.quit()
