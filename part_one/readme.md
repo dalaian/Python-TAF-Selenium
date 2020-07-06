@@ -9,7 +9,7 @@ You have several ways to install python
 
 You can download it from https://www.python.org/downloads
 
-Or, if you are on Mac, you can install it via brew or npm
+Or, if you are on Mac, you can install it via brew or npm (may need Xcode)
 
 brew command
 ```
@@ -30,7 +30,7 @@ Run the code as follows and it will print in the console what was asked in the a
 python main.py
 ```
 
-By default, it executes the script using the file *data/max_edge_case.txt*,
+By default, it executes the script using the file [data/max_edge_case.txt](https://github.com/dalaian/Test/blob/master/part_one/data/max_edge_case.txt),
 which is a file pretty similar to the one given in the assessment
 
 But you can run the script using a different file adding the file path as a parameter as follows:
@@ -57,4 +57,4 @@ Run the negative tests as follows
 ```
 python -m unittest negative_tests
 ```
-Certain assumptions were implemented to have negative tests, check the details in [part_one/utils/utils.get_largest_word()](https://github.com/dalaian/Test/blob/master/part_one/utils/utils.py#L4)
+Certain assumptions were implemented to have negative tests, check the details in [part_one/utils/utils.get_largest_word()](https://github.com/dalaian/Test/blob/master/part_one/utils/utils.py#L3)

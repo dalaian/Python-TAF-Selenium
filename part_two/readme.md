@@ -22,7 +22,7 @@ Get the executable from the Node JS page https://nodejs.org/es/download/
 and install it, or you can install it from brew
 
 Once you are done, NodeJS and npm will be installed
-> Remember to check that *node --version* and *npm --version* work as expected
+> Remember to check that the commands *node --version* and *npm --version* work as expected
 
 Run the following command to install the web-driver
 ```
@@ -33,14 +33,17 @@ Now, run the following command to update it
 ```
 webdriver-manager update
 ```
-And start the web manager by the command
+
+
+## Running the test
+Now, if everything is correct start the web manager by the command (or if you used another grid, start it as usually)
 ```
 webdriver-manager start
 ```
+>Note you cannot close this terminal
 
-## Running the test
-Now, if everything is correct, open the terminal, and go to the folder **part_two**
 
+Open the terminal, and go to the folder **part_two**
 
 Run the following command to install the [requirements](https://github.com/dalaian/Test/blob/master/part_two/requirements.txt)
 ```
@@ -54,7 +57,7 @@ python UI/tests/product/TS001ValidateProductCanBeAddedToCart.py
 
 ## Parameters
 It's possible to indicate in which browser you want to run the test case 
-using the parameter '-b' or '--browser', by default it is CHROME
+using the parameter **-b** or **--browser**, by default it is CHROME
 ```
 python UI/tests/product/TS001ValidateProductCanBeAddedToCart.py -b <CHROME/FIREFOX/SAFARI>
 ``` 
@@ -63,8 +66,8 @@ For instance:
 python UI/tests/product/TS001ValidateProductCanBeAddedToCart.py --browser FIREFOX
 ``` 
 
-Or you can send a parameter to indicate to run the test case in headless mode, using the parameter '-hl' or '--headless',
- by default it is not in headless mode
+Or you can send a parameter to indicate to run the test case in headless mode, using the parameter 
+**-hl** or **--headless**, by default it is not in headless mode
 ```
 python UI/tests/product/TS001ValidateProductCanBeAddedToCart.py --headless <True/1/T/t/true False/0/F/f/false>
 ``` 
@@ -75,7 +78,7 @@ python UI/tests/product/TS001ValidateProductCanBeAddedToCart.py -hl True
 > Note: to run the automation on Safari you have to check the 'Allow Remote Automation' option in Safari's Develop menu, 
 also Safari does not support headless mode yet
 
-You can also see what parameters you can send using the -h parameter
+You can also see what parameters you can send using the **-h** parameter
 ```
 python UI/tests/product/TS001ValidateProductCanBeAddedToCart.py -h
 ``` 
@@ -96,3 +99,4 @@ Under **UI/reports** you can find xml reports about the results of the test case
 
 Finally, **UI/reports/screenshots** has all the screenshots taken if any error was present, 
 the name says in which test case and step the error occurred
+> The reports are ignored by .gitignore
